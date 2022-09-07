@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "site": "spacemule-links",
+
+    "public": "build/web",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
