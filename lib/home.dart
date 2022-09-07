@@ -33,17 +33,25 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SvgPicture.asset(
-            assetName,
-            height: 100,
-            width: 100,
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white, width: 2),
+              borderRadius: BorderRadius.circular(8),
+              color:
+                  // color with hex 389BEEFF
+                  Colors.white,
+            ),
+            child: SvgPicture.asset(
+              assetName,
+              height: 100,
+              width: 100,
+            ),
           ),
           Padding(
             padding: EdgeInsets.all(8.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
                   'Want your Own? Open Source',
@@ -56,10 +64,18 @@ class _HomePageState extends State<HomePage> {
                 TextButton(
                   style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
-                      minimumSize: const Size(50, 30),
+                      minimumSize: const Size(30, 30),
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       alignment: Alignment.centerLeft),
-                  onPressed: () {},
+                  onPressed: () async {
+                    final _url = Uri.parse(
+                        '  https://github.com/spaceMuleCode/SpaceMuleLinks');
+                    if (await canLaunchUrl(_url)) {
+                      await launchUrl(_url);
+                    } else {
+                      throw 'Could not launch $_url';
+                    }
+                  },
                   child: const Text(
                     ' Here',
                     style: TextStyle(
