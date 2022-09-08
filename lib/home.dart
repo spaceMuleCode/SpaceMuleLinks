@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   final String assetName = 'assets/mule.svg';
   @override
   Widget build(BuildContext context) {
-    final space = SizedBox(
+    const space = SizedBox(
       height: 10,
     );
     return Container(
