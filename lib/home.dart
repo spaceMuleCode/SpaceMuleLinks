@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          space,
           Expanded(
             flex: 3,
             child: CircleAvatar(
