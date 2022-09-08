@@ -21,6 +21,9 @@ class _HomePageState extends State<HomePage> {
   final String assetName = 'assets/mule.svg';
   @override
   Widget build(BuildContext context) {
+    final space = SizedBox(
+      height: 10,
+    );
     return Container(
       decoration: const BoxDecoration(
         color:
@@ -106,9 +109,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          SizedBox(
-            height: 3,
-          ),
+          space,
           Expanded(
             child: InstagramInfoRow(
               selected: selected,
@@ -127,9 +128,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          SizedBox(
-            height: 3,
-          ),
+          space,
           Expanded(
             child: LinkedInRow(
               selected: selected,
@@ -149,9 +148,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          SizedBox(
-            height: 3,
-          ),
+          space,
           Expanded(
             child: GitHubRow(
               selected: selected,
@@ -170,9 +167,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          const SizedBox(
-            height: 3,
-          ),
+          space,
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
