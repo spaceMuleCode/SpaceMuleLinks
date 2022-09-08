@@ -34,10 +34,14 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             flex: 3,
             child: CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: 100,
-              child: SvgPicture.asset(
-                assetName,
+              radius: 101,
+              backgroundColor: Colors.black,
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                radius: 100,
+                child: SvgPicture.asset(
+                  assetName,
+                ),
               ),
             ),
           ),
