@@ -22,129 +22,152 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.white, width: 2),
-        borderRadius: BorderRadius.circular(10),
+      decoration: const BoxDecoration(
         color:
             // color with hex 389BEEFF
-            const Color(0xFF389BEE),
+            Color(0xFF389BEE),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 2),
-              borderRadius: BorderRadius.circular(8),
-              color:
-                  // color with hex 389BEEFF
-                  Colors.white,
-            ),
-            child: SvgPicture.asset(
-              assetName,
-              height: 100,
-              width: 100,
+          Expanded(
+            flex: 3,
+            child: CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: 100,
+              child: SvgPicture.asset(
+                assetName,
+              ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Want your Own? Open Source',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 10,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      minimumSize: const Size(30, 30),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      alignment: Alignment.centerLeft),
-                  onPressed: () async {
-                    final _url = Uri.parse(
-                        '  https://github.com/spaceMuleCode/SpaceMuleLinks');
-                    if (await canLaunchUrl(_url)) {
-                      await launchUrl(_url);
-                    } else {
-                      throw 'Could not launch $_url';
-                    }
-                  },
-                  child: const Text(
-                    ' Here',
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Want your Own? Open Source',
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        color: Colors.black,
+                        fontSize: 10,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.none),
                   ),
-                )
-              ],
+                  TextButton(
+                    style: TextButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        minimumSize: const Size(30, 30),
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        alignment: Alignment.centerLeft),
+                    onPressed: () async {
+                      final _url = Uri.parse(
+                          'https://github.com/spaceMuleCode/SpaceMuleLinks');
+                      if (await canLaunchUrl(_url)) {
+                        await launchUrl(_url);
+                      } else {
+                        throw 'Could not launch $_url';
+                      }
+                    },
+                    child: const Text(
+                      ' Here',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
-          TwitterRow(
-            selected: selected,
-            icon: const FaIcon(FontAwesomeIcons.twitter),
-            onTap: () async {
-              final _url = Uri.parse('https://twitter.com/spacemulecode');
-              if (await canLaunchUrl(_url)) {
-                await launchUrl(_url);
-              } else {
-                throw 'Could not launch $_url';
-              }
-            },
+          Expanded(
+            child: TwitterRow(
+              selected: selected,
+              icon: const FaIcon(
+                FontAwesomeIcons.twitter,
+                size: 40,
+                color: Colors.white,
+              ),
+              onTap: () async {
+                final _url = Uri.parse('https://twitter.com/spacemulecode');
+                if (await canLaunchUrl(_url)) {
+                  await launchUrl(_url);
+                } else {
+                  throw 'Could not launch $_url';
+                }
+              },
+            ),
           ),
           SizedBox(
-            height: 1,
+            height: 3,
           ),
-          InstagramInfoRow(
-            selected: selected,
-            icon: const FaIcon(FontAwesomeIcons.instagram),
-            onTap: () async {
-              final _url = Uri.parse('https://instagram.com/spacemulecode');
-              if (await canLaunchUrl(_url)) {
-                await launchUrl(_url);
-              } else {
-                throw 'Could not launch $_url';
-              }
-            },
-          ),
-          SizedBox(
-            height: 1,
-          ),
-          LinkedInRow(
-            selected: selected,
-            icon: const FaIcon(FontAwesomeIcons.linkedinIn),
-            onTap: () async {
-              final _url =
-                  Uri.parse('https://www.linkedin.com/in/smithzacharyb/');
-              if (await canLaunchUrl(_url)) {
-                await launchUrl(_url);
-              } else {
-                throw 'Could not launch $_url';
-              }
-            },
+          Expanded(
+            child: InstagramInfoRow(
+              selected: selected,
+              icon: const FaIcon(
+                FontAwesomeIcons.instagram,
+                size: 40,
+                color: Colors.white,
+              ),
+              onTap: () async {
+                final _url = Uri.parse('https://instagram.com/spacemulecode');
+                if (await canLaunchUrl(_url)) {
+                  await launchUrl(_url);
+                } else {
+                  throw 'Could not launch $_url';
+                }
+              },
+            ),
           ),
           SizedBox(
-            height: 1,
+            height: 3,
           ),
-          GitHubRow(
-            selected: selected,
-            icon: const FaIcon(FontAwesomeIcons.githubAlt),
-            onTap: () async {
-              final _url = Uri.parse('https://www.github.com/smithzachary/');
-              if (await canLaunchUrl(_url)) {
-                await launchUrl(_url);
-              } else {
-                throw 'Could not launch $_url';
-              }
-            },
+          Expanded(
+            child: LinkedInRow(
+              selected: selected,
+              icon: const FaIcon(
+                FontAwesomeIcons.linkedinIn,
+                size: 40,
+                color: Colors.white,
+              ),
+              onTap: () async {
+                final _url =
+                    Uri.parse('https://www.linkedin.com/in/smithzacharyb/');
+                if (await canLaunchUrl(_url)) {
+                  await launchUrl(_url);
+                } else {
+                  throw 'Could not launch $_url';
+                }
+              },
+            ),
+          ),
+          SizedBox(
+            height: 3,
+          ),
+          Expanded(
+            child: GitHubRow(
+              selected: selected,
+              icon: const FaIcon(
+                FontAwesomeIcons.githubAlt,
+                size: 40,
+                color: Colors.white,
+              ),
+              onTap: () async {
+                final _url = Uri.parse('https://www.github.com/smithzachary/');
+                if (await canLaunchUrl(_url)) {
+                  await launchUrl(_url);
+                } else {
+                  throw 'Could not launch $_url';
+                }
+              },
+            ),
+          ),
+          const SizedBox(
+            height: 3,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -10,13 +10,13 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: kIsWeb
         ? const FirebaseOptions(
-            apiKey: "AIzaSyDpyfFlWeOG-V_pLR0bb6aI1Ca95MZHDBs",
-            authDomain: "linktreedemospacemule.firebaseapp.com",
-            projectId: "linktreedemospacemule",
-            storageBucket: "linktreedemospacemule.appspot.com",
-            messagingSenderId: "1024143861771",
-            appId: "1:1024143861771:web:653733d7e826af31f3bf0e",
-            measurementId: "G-GRRHMD0N5Z")
+            apiKey: "AIzaSyC9Pame9udIaavy8bEhv_BqMDyj9nqwpfQ",
+            authDomain: "linkdemomule.firebaseapp.com",
+            projectId: "linkdemomule",
+            storageBucket: "linkdemomule.appspot.com",
+            messagingSenderId: "1053883022887",
+            appId: "1:1053883022887:web:eee770b502ec03746cd802",
+            measurementId: "G-K4NWPKB3TK")
         : null,
   );
   runApp(const MyApp());

@@ -1,5 +1,19 @@
 {
   "projects": {
-    "default": "linktreedemospacemule"
+    "default": "linktreedemospacemule",
+    "mule": "linkdemomule",
+    "mulelink": "spacemulecodelinks"
+  },
+  "targets": {
+    "linktreedemospacemule": {
+      "hosting": {
+        "spacemule-links": [
+          "web"
+        ],
+        "web": [
+          "spacemule-links"
+        ]
+      }
+    }
   }
 }

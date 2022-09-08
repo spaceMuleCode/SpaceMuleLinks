@@ -43,11 +43,16 @@ class _TwitterRowState extends State<TwitterRow> {
       },
       child: AnimatedContainer(
         decoration: BoxDecoration(
-          color: widget.selected ? Colors.white : Colors.transparent,
-          borderRadius: BorderRadius.circular(10),
+          color: widget.selected ? Colors.transparent : Colors.transparent,
+          borderRadius: BorderRadius.circular(30),
+          border: Border.all(
+            color: widget.selected ? Colors.white : Colors.transparent,
+            width: 1,
+          ),
         ),
-        width: widget.selected ? 200.0 : 36.0,
-        height: widget.selected ? 30.0 : 30.0,
+        width: widget.selected ? MediaQuery.of(context).size.width * 0.8 : 52.0,
+
+        // height: widget.selected ? 40.0 : 40.0,
         alignment: widget.selected
             ? Alignment.centerLeft
             : AlignmentDirectional.centerStart,
@@ -68,7 +73,8 @@ class _TwitterRowState extends State<TwitterRow> {
                 padding: const EdgeInsets.only(bottom: 3.0),
                 child: TextButton(
                   onPressed: widget.onTap,
-                  child: Text('Twitter'),
+                  child: Text('Twitter',
+                      style: TextStyle(color: Colors.white, fontSize: 25)),
                 ),
               ),
             )
